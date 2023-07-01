@@ -1,0 +1,26 @@
+[
+    {
+        "question": "The applicant is staying at Bangalore for the last two years and permanent address is in Kerala. Can he/she endorse his/her permanent address instead of present address in the passport?",
+        "answer": "Only the present address will be endorsed on the passport and not the permanent address."
+    },
+    {
+        "question": "I am a self employed person and have recently shifted to Bangalore from Delhi. I want to apply for passport on Tatkaal basis, but I don't have any address proof. What should I do?",
+        "answer": "It is mandatory to submit proof of address to apply for a passport. Please click here to see the list of acceptable documents as proof of address."
+    },
+    {
+        "question": "A mentally retarded person wants to go abroad for treatment. He does not have any address proof. Will he be able to get passport? If yes, then what is the procedure?",
+        "answer": "The applicant has to apply for passport and submit parent's/legal guardian's address proof along with his/her date of birth proof. Passport would be granted to the applicant subject to approval of Competent Authority."
+    },
+    {
+        "question":"What will be the validity of passport if I apply for renewal of Short Validity Passport?",
+        "answer": "The validity of passport would be decided by competent authority on case-to-case basis."
+    },
+    {
+        "question": "Incorrect details have been printed on my passport. What should I do?",
+        "answer": "Applicants are requested to take utmost care when applying online with the view to ensure that the passports are delivered without any typographical errors since applicants have themselves fed the data. Also, every applicant is given opportunity to verify particulars at Counter-A of PSK/POPSK.\n\nHowever, if you find any mistake/error in the particulars printed in the passport booklet as per the application form submitted, please return the passport for necessary rectification at Regional Passport Office concerned. If the rectification is approved by the competent authority, a new booklet with new passport number would be issued. Any additional fees required to be paid would depend upon merit of the case. In certain cases, applicant can be advised to apply for re-issue of passport too."
+    },
+    {
+        "question": "My mother is old and infirm. She cannot come to the Passport Seva Kendra/ Post Office Passport Seva Kendra. Can I apply for her through an agent?\nOR\nI am a very busy executive. Can my office boy submit the application on my behalf?\nOR\nIs it mandatory for me to be physically present at PSK while submitting the passport application?",
+        "answer": "It is mandatory for ALL applicants to be physically present while submitting the passport application form at the Passport Seva Kendra/ Post Office Passport Seva Kendra."
+    }
+]

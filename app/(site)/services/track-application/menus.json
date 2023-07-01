@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Passport/ PCC/ IC/ GEP",
+        "code": "Application_Status",
+        "subMenus": [
+            {
+                "label": "File Number",
+                "name": "fileNo",
+                "type": "text"
+            },
+            {
+                "label": "Date of Birth",
+                "name": "dob",
+                "type": "date"
+            }
+        ]
+    },
+    {
+        "name": "RTI",
+        "code": "RTI",
+        "subMenus": [
+            {
+                "label": "RTI Raference Number",
+                "name": "rtiRefNo",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "name": "Diplomatic/ Official Application",
+        "code": "Diplomatic_Or_Official_Application_Status",
+        "subMenus": [
+            {
+                "label": "ARN Number",
+                "name": "arnNo",
+                "type": "text"
+            }
+        ]
+    },
+    {
+        "name": "Surrender Certificate",
+        "code": "SC_Status",
+        "subMenus": [
+            {
+                "label": "File Number",
+                "name": "fileNo",
+                "type": "text"
+            },
+            {
+                "label": "Date of Birth",
+                "name": "dob",
+                "type": "date"
+            }
+        ]
+    },
+    {
+        "name": "Appeal Application",
+        "code": "Appeal_Status",
+        "subMenus": [
+            {
+                "label": "Appeal Number",
+                "name": "appealNo",
+                "type": "text"
+            },
+            {
+                "label": "Date of Birth",
+                "name": "dob",
+                "type": "date"
+            }
+        ]
+    }
+]

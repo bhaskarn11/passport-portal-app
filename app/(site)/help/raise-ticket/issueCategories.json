@@ -1,0 +1,89 @@
+[
+    {
+        "category": "Police Related Issues",
+        "subCategory": [
+            "PVR not completed",
+            "Complaint Against a Police Officer",
+            "Other"
+        ]
+    },
+    {
+        "category": "Portal Related Issues",
+        "subCategory": [
+            "Website not updated",
+            "Information sought from the website is not available",
+            "Passport Seva website not working",
+            "Passport Seva website is working slow",
+            "Problem in uploading of the form",
+            "Problem in attaching documents",
+            "Problem in retrieving file during the second session"
+        ]
+    },
+    {
+        "category": "Complaint against Call Centre",
+        "subCategory": [
+            "Incorrect/Insufficient details provided by CCE",
+            "CCE unreachable during working time",
+            "Bad Behaviour by CCE",
+            "Other",
+            "IVR Related issues"
+        ]
+    },
+    {
+        "category": "Feedback",
+        "subCategory": [
+            "Suggestion",
+            "Appreciation"
+        ]
+    },
+    {
+        "category": "Delay in Application Submission",
+        "subCategory": [
+            "Non acceptance of passport application and documents at PO",
+            "Non acceptance of passport application and documents at PSK",
+            "Any Other",
+            "Non acceptance of Passport Application and documents at  Portal"
+        ]
+    },
+    {
+        "category": "Delay in processing of Passport",
+        "subCategory": [
+            "File lost by PO",
+            "others",
+            "Passport Application not accepted at Verification Counter",
+            "Passport Application not accepted at Granting Counter",
+            "Passport Granted but not printed",
+            "PVR received but passport not issued"
+        ]
+    },
+    {
+        "category": "Postal related Issues",
+        "subCategory": [
+            "Passport dispatched but not received",
+            "Passport lost in dispatch",
+            "Other"
+        ]
+    },
+    {
+        "category": "Appointment related issues",
+        "subCategory": [
+            "Delay in granting appointment date at PBO/ PSK",
+            "Appointments not honored by the Passport Official",
+            "Other"
+        ]
+    },
+    {
+        "category": "Miscellaneous",
+        "subCategory": [
+            "Other Issues"
+        ]
+    },
+    {
+        "category": "Passport Booklet related issues",
+        "subCategory": [
+            "Incorrect Details in Passport",
+            "Quality of booklet received not satisfactory",
+            "Other"
+        ]
+    }
+]

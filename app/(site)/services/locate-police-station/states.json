@@ -1,0 +1,286 @@
+[
+    {
+        "name": "West Bengal",
+        "code": "WB",
+        "policeDistricts": [
+            "Bankura",
+            "Barrackpore",
+            "Baruipur",
+            "Basirhat",
+            "Bidhannagar",
+            "Birbhum",
+            "Bongaon",
+            "Chandannagar",
+            "Cooch Behar",
+            "Darjeeling",
+            "Diamond Harbour",
+            "East Medinipur",
+            "Hooghly Rural",
+            "Howrah",
+            "Howrah Rural",
+            "Islampur Police District",
+            "Jalpaiguri",
+            "Jangipur",
+            "Jhargram"
+        ]
+    },
+    {
+        "name": "Andaman and Nicobar Islands",
+        "code": "AN",
+        "policeDistricts": [
+            "Nichobar",
+            "North Middle Andaman",
+            "South Andaman"
+        ]
+    },
+    {
+        "name": "Andhra Pradesh",
+        "code": "AP",
+        "policeDistricts": [
+            "Eluru"
+        ]
+    },
+    {
+        "name": "Arunachal Pradesh",
+        "code": "AR",
+        "policeDistricts": [
+            "Anjaw"
+        ]
+    },
+    {
+        "name": "Assam",
+        "code": "AS",
+        "policeDistricts": [
+            "Biswanath"
+        ]
+    },
+    {
+        "name": "Bihar",
+        "code": "BR",
+        "policeDistricts": [
+            "Araria"
+        ]
+    },
+    {
+        "name": "Chandigarh",
+        "code": "CG",
+        "policeDistricts": [
+            "Chandigarh"
+        ]
+    },
+    {
+        "name": "Chhattisgarh",
+        "code": "CH",
+        "policeDistricts": [
+            "Balod",
+            "Baloda Bazar"
+        ]
+    },
+    {
+        "name": "Dadra and Nagar Haveli",
+        "code": "DN",
+        "policeDistricts": [
+            "Dadar Nagar Haveli"
+        ]
+    },
+    {
+        "name": "Daman and Diu",
+        "code": "DD",
+        "policeDistricts": [
+            "Daman",
+            "Diu"
+        ]
+    },
+    {
+        "name": "Delhi",
+        "code": "DL",
+        "policeDistricts": [
+            "Central Delhi",
+            "Dwarka"
+        ]
+    },
+    {
+        "name": "Goa",
+        "code": "GA",
+        "policeDistricts": [
+            "North Goa",
+            "South Goa"
+        ]
+    },
+    {
+        "name": "Gujarat",
+        "code": "GJ",
+        "policeDistricts": [
+            "Ahmedabad"
+        ]
+    },
+    {
+        "name": "Haryana",
+        "code": "HR",
+        "policeDistricts": [
+            "Ambala"
+        ]
+    },
+    {
+        "name": "Himachal Pradesh",
+        "code": "HP",
+        "policeDistricts": [
+            "Baddi"
+        ]
+    },
+    {
+        "name": "Jammu and Kashmir",
+        "code": "JK",
+        "policeDistricts": [
+            "Anantnag"
+        ]
+    },
+    {
+        "name": "Jharkhand",
+        "code": "JH",
+        "policeDistricts": [
+            "Bokaro"
+        ]
+    },
+    {
+        "name": "Karnataka",
+        "code": "KA",
+        "policeDistricts": [
+            "Belgavi City"
+        ]
+    },
+    {
+        "name": "Kerala",
+        "code": "KL",
+        "policeDistricts": [
+            "Alapuzzha"
+        ]
+    },
+    {
+        "name": "Ladakh",
+        "code": "LA",
+        "policeDistricts": [
+            "Kargil",
+            "Leh"
+        ]
+    },
+    {
+        "name": "Lakshadweep",
+        "code": "LD",
+        "policeDistricts": [
+            "Lakshadeep"
+        ]
+    },
+    {
+        "name": "Madhya Pradesh",
+        "code": "MP",
+        "policeDistricts": [
+            "Agar Malwa"
+        ]
+    },
+    {
+        "name": "Maharashtra",
+        "code": "MH",
+        "policeDistricts": [
+            "Ahmednagar"
+        ]
+    },
+    {
+        "name": "Manipur",
+        "code": "MN",
+        "policeDistricts": [
+            "Bishnupur"
+        ]
+    },
+    {
+        "name": "Meghalaya",
+        "code": "ML",
+        "policeDistricts": [
+            "East Garo Hills"
+        ]
+    },
+    {
+        "name": "Mizoram",
+        "code": "MZ",
+        "policeDistricts": [
+            "Aizawl"
+        ]
+    },
+    {
+        "name": "Nagaland",
+        "code": "NL",
+        "policeDistricts": [
+            "Chumukidema"
+        ]
+    },
+    {
+        "name": "Odisha",
+        "code": "OR",
+        "policeDistricts": [
+            "Anugul"
+        ]
+    },
+    {
+        "name": "Puducherry",
+        "code": "PY",
+        "policeDistricts": [
+            "Karaikal"
+        ]
+    },
+    {
+        "name": "Punjab",
+        "code": "PB",
+        "policeDistricts": [
+            "Amritsar"
+        ]
+    },
+    {
+        "name": "Rajasthan",
+        "code": "RJ",
+        "policeDistricts": [
+            "Ajmer"
+        ]
+    },
+    {
+        "name": "Sikkim",
+        "code": "SK",
+        "policeDistricts": [
+            "Gangtok"
+        ]
+    },
+    {
+        "name": "Tamil Nadu",
+        "code": "TN",
+        "policeDistricts": [
+            "Ariyalur"
+        ]
+    },
+    {
+        "name": "Telangana",
+        "code": "TN",
+        "policeDistricts": [
+            "Adilabad"
+        ]
+    },
+    {
+        "name": "Tripura",
+        "code": "TR",
+        "policeDistricts": [
+            "Dhalai"
+        ]
+    },
+    {
+        "name": "Uttar Pradesh",
+        "code": "UP",
+        "policeDistricts": [
+            "Agra"
+        ]
+    },
+    {
+        "name": "Uttarakhand",
+        "code": "UK",
+        "policeDistricts": [
+            "Almora"
+        ]
+    }
+]
