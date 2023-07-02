@@ -15,7 +15,7 @@ const stats = [
 
 ]
 
-function SiteStateWidget() {
+function SiteStatsWidget() {
     return (
         <Container className='mt-4'>
             <Row>
@@ -48,4 +48,4 @@ function SiteStateWidget() {
     )
 }
 
-export default SiteStateWidget
+export default SiteStatsWidget

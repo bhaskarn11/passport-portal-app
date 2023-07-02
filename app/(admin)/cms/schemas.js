@@ -1,6 +1,6 @@
-export const LegalDoc = {
-    name: 'legalDocs',
-    title: 'Legal Docs',
+export const Articles = {
+    name: 'articles',
+    title: 'General Articles',
     type: 'document',
     fields: [
         {
@@ -20,7 +20,27 @@ export const LegalDoc = {
             title: 'Content',
             name: 'content',
             type: 'array',
-            of: [{ type: 'block' }]
+            of: [{ 
+                type: 'block',
+                of: [
+                    {type: 'image'}
+                ] 
+            }]
+        },
+
+        {
+            name: 'files',
+            title: 'Files',
+            type: 'array',
+            of: [
+                {
+                    type: 'file',
+                    options: {
+                        accept: '.pdf, .doc, .docx'
+                    }
+                }
+            ],
+            validation: rule => rule.length(4)
         }
     ]
 }
@@ -47,6 +67,13 @@ export const HelpArticle = {
             options: {
                 source: 'title'
             }
+        },
+        {
+            name: 'description',
+            type: 'text',
+            title: 'Description',
+            rows: 4,
+            validation: Rule => Rule.required().max(100)
         },
         {
             name: 'topic',
@@ -87,7 +114,7 @@ export const Topic = {
 
 
 export const GenDocFiles = {
-    name: 'genDocuments',
+    name: 'documents',
     title: 'Documents',
     type: 'document',
     fields: [
@@ -144,7 +171,8 @@ export const NoticesAndUpdates = {
     title: 'Notices and Updates',
     preview: {
         select: {
-            title: 'description'
+            title: 'description',
+            subtitle: 'category'
         }
     },
     fields: [
@@ -179,11 +207,12 @@ export const NoticesAndUpdates = {
             options: {
                 list: [
                     { title: 'Circular', value: 'circular' },
-                    { title: 'News', value: 'news' }
+                    { title: 'News', value: 'news' },
+                    { title: 'Announcement', value: 'announcement' }
                 ]
             },
             validation: rule => rule.required()
         }
-        
+
     ]
 }

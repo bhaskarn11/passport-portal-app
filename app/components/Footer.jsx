@@ -1,4 +1,4 @@
-import { Col, Container, ListGroup, ListGroupItem, NavbarBrand, Row, Stack } from "@/bootstrap";
+import { Col, Container, NavbarBrand, Row, Stack } from "@/bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faTwitter, faYoutube, faFlickr } from "@fortawesome/free-brands-svg-icons"
 import Image from "next/image";
@@ -96,17 +96,17 @@ const footerMenus = [
 
 export default function Footer() {
     return (
-        <Container fluid className="bg-primary mt-4 py-4 text-white">
+        <footer className="bg-primary mt-4 py-4 text-white">
             <Container>
                 <Row className="pb-4 justify-left">
                     {
                         footerMenus.map((menu, index) => (
                             <Col className="col-12 col-md-3" key={index}>
-                                <Stack gap={1} className="bg-primary text-white pb-3" variant="flush" title="Quick links">
+                                <Stack gap={1} className="bg-primary pb-3" variant="flush" title={menu.title}>
                                     <h4>{menu.title}</h4>
                                     {
                                         menu.links.map((link, idx) => (
-                                            <Link href={link.url} key={idx} className="bg-primary text-white">
+                                            <Link href={link.url} key={idx} className="link-underline-dark text-white link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover ">
                                                 {link.title}
                                             </Link>
                                         ))
@@ -120,8 +120,8 @@ export default function Footer() {
 
                 </Row>
                 <Row>
-                    <Stack gap={2} direction="horizontal" className="text-white align-middle">
-                        <span className="text-white">
+                    <Stack gap={2} direction="horizontal" className="align-middle">
+                        <span>
                             Follow us on:
                         </span>
                         <FontAwesomeIcon size="lg" icon={faFacebook} />
@@ -132,7 +132,9 @@ export default function Footer() {
                     <Stack gap={2} direction="horizontal">
                         <FontAwesomeIcon icon={faPhone} />
                         <span>Call us: </span>
-                        <Link className="text-white" href="phone:1800-258-1800">1800-258-1800</Link>
+                        <Link className="text-white" href="phone:1800-258-1800">
+                            <strong>1800-258-1800</strong>
+                        </Link>
                         <span>(toll free)</span>
                     </Stack>
                 </Row>
@@ -159,14 +161,13 @@ export default function Footer() {
 
                     </Col>
                 </Row>
-
-                <hr className="text-white" />
-                <Row className="pt-4 text-white">
+                <hr/>
+                <Row className="pt-4">
                     <small>© Ministry of External Affairs, Government of India. All rights reserved.</small>
                     <small>Last updated: 12/06/2023</small>
                     <small>This site is best viewed in 1024 * 768 resolution with latest version of Chrome, Firefox, Safari and Microsoft Edge.</small>
                 </Row>
             </Container>
-        </Container>
+        </footer>
     )
 }

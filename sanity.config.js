@@ -2,7 +2,7 @@ import { defineConfig, isDev } from "sanity";
 
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
-import { LegalDoc, HelpArticle, Topic, GenDocFiles, Forms, NoticesAndUpdates } from "@/app/(admin)/cms/schemas";
+import { Articles, HelpArticle, Topic, GenDocFiles, Forms, NoticesAndUpdates } from "@/app/(admin)/cms/schemas";
 
 const config = defineConfig({
     projectId: '6ticjj8p',
@@ -11,7 +11,7 @@ const config = defineConfig({
     basePath: "/cms",
     plugins: isDev? [deskTool(), visionTool()]: [deskTool()],
     schema: {
-        types: [LegalDoc, HelpArticle, Topic, GenDocFiles, Forms, NoticesAndUpdates]
+        types: [Articles, HelpArticle, Topic, GenDocFiles, Forms, NoticesAndUpdates]
     }
 })
 

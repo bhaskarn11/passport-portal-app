@@ -2,9 +2,9 @@
 
 import Head from 'next/head'
 import { Col, Container, Row, Carousel, Alert } from '@/bootstrap'
-import QuickLinkSidebar from './components/QuickLinkSidebar'
-import LatestUpdates from './components/LatestUpdates'
-import SiteStateWidget from './components/SIteStateWidget'
+import QuickLinkSidebar from '../components/QuickLinkSidebar'
+import LatestUpdates from '../components/LatestUpdates'
+import SiteStateWidget from '../components/SiteStatsWidget'
 import Image from 'next/image'
 import Slide1 from "@/assets/image/Rajkumar_Ranjan_Singh.jpg";
 import Slide2 from '@/assets/image/slide6.jpg'

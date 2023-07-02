@@ -1,13 +1,7 @@
-import '@/app/globals.scss'
-import 'react-bootstrap-typeahead/css/Typeahead.bs5.css';
-import '@fortawesome/fontawesome-svg-core/styles.css'
-import { config } from '@fortawesome/fontawesome-svg-core'
-import MainNavbar from './components/MainNavbar'
+import MainNavbar from '../components/MainNavbar'
 import { Container } from '@/bootstrap'
-import Footer from './components/Footer'
+import Footer from '../components/Footer'
 
-
-config.autoAddCss = false
 
 export const metadata = {
   title: {

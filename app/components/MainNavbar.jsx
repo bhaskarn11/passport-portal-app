@@ -1,8 +1,7 @@
 'use client'
 
-import { NavDropdown, Nav, Navbar, Form, Button, Offcanvas, Container, Row, Col } from "@/bootstrap";
-import PassportSevaLogo from "@/assets/image/passportSeva.gif"
-import Image from "next/image";
+import { NavDropdown, Nav, Navbar, Form, Button, Offcanvas, Container, Row, Col } from "react-bootstrap";
+import HeaderBrand from "./HeaderBrand";
 import LanguageSelector from "./LanguageSelector";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -12,9 +11,7 @@ export default function MainNavbar() {
   return (
     <Navbar sticky="top" expand="md" className="exanand-lg" bg="light" data-bs-theme="light">
       <Container>
-        <Navbar.Brand as={Link} href="/">
-          <Image alt="Passport Seva Logo" src={PassportSevaLogo} style={{ objectFit: 'scale-down' }} />
-        </Navbar.Brand>
+        <HeaderBrand />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-md`}
