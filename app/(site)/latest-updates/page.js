@@ -5,17 +5,23 @@ import { getNoticesByYear } from "@/lib/utils";
 import dayjs from "dayjs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
+import CustomPagination from './Pagination';
 
 async function LatestUpdatesPage({ searchParams }) {
 
 
   let year = 2023
+
+  const page = searchParams['page'] ? parseInt(searchParams['page']) : 1
+  const offset = (page - 1) * 10
+  const limit = offset + 10
+
   if (searchParams['y']) {
     year = parseInt(searchParams['y'])
   }
 
-  const notices = await getNoticesByYear(dayjs().year(year).add(1, 'day').format('YYYY-MM-DD'))
-  
+  const notices = await getNoticesByYear(dayjs().year(year).add(1, 'day').format('YYYY-MM-DD'), offset, limit)
+
   return (
     <Container className='py-4'>
 
@@ -29,9 +35,9 @@ async function LatestUpdatesPage({ searchParams }) {
         </ListGroupItem>
         {
           notices.length > 0 ? notices.map((notice, idx) => (
-            <ListGroupItem className='shadow' key={idx}>
+            <ListGroupItem id={notice._id} className='shadow' key={idx}>
               <h5>{dayjs(notice._createdAt).format('DD-MM-YYYY')}</h5>
-
+              <hr />
               <p className='text-wrap'>{notice.description}</p>
               {
                 notice.fileURL ?
@@ -50,7 +56,9 @@ async function LatestUpdatesPage({ searchParams }) {
               </Col>
             </Row>
         }
-
+        <ListGroupItem>
+          <CustomPagination />
+        </ListGroupItem>
       </ListGroup>
 
 

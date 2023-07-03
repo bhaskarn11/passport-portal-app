@@ -18,13 +18,13 @@ import dayjs from 'dayjs'
 //     }
 // ]
 
-function LatestUpdateCard({ title, date }) {
+function LatestUpdateCard({ update }) {
     return (
         <Card bg="secondary">
             <Card.Body>
-                <Card.Header style={{backgroundColor: "inherit"}}>{dayjs(date).format('DD/MM/YYYY')}</Card.Header>
+                <Card.Header style={{backgroundColor: "inherit"}}>{dayjs(update._createdAt).format('DD/MM/YYYY')}</Card.Header>
                 <Card.Title>
-                    {title.length > 50 ? (title.slice(0, 50) + "...") : title}
+                    <Link className='link-underline-opacity-0 link-underline' href={`/latest-updates#${update._id}`}>{update.description.length > 50 ? (update.description.slice(0, 50) + "...") : update.description}</Link>
                 </Card.Title>
             </Card.Body>
         </Card>
@@ -58,7 +58,7 @@ async function LatestUpdates() {
             {
                 updates.map((update, idx) => (
                     <Col key={idx} className='col-12 col-md-6'>
-                        <LatestUpdateCard title={update.description} date={update._createdAt} />
+                        <LatestUpdateCard update={update} />
                     </Col>
                 ))
             }

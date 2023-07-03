@@ -4,7 +4,8 @@ $theme-colors: (
     'warning' : #FCA311,
     'dark': #FDCC86,
     'light' : #FDECEF,
-    'danger': #D60E0A
+    'danger': #D60E0A,
+    'success': green
 );
 
 @import '~bootstrap/scss/bootstrap';

@@ -1,9 +1,9 @@
-import { faArrowRight, faPenToSquare, faCalendarCheck, faPassport } from "@fortawesome/free-solid-svg-icons";
+import { faCertificate, faPenToSquare, faCalendarCheck, faPassport } from "@fortawesome/free-solid-svg-icons";
 
 const menus = [
     {
         "title": "View Submitted Applications",
-        "href": "/dashboard/application",
+        "href": "/dashboard/applications",
         "menuIcon": faPenToSquare,
         "subMenus": []
     },
@@ -20,34 +20,38 @@ const menus = [
         "subMenus": [
             {
                 "title": "New Passport",
-                "href": "/application/new-passport"
+                "href": "/applications/new-passport"
             },
             {
                 "title": "Renew Pasport",
-                "href": "/application/renew-passport"
+                "href": "/applications/renew-passport"
             }
         ]
     },
     {
         "title": "Certificates and Permits",
         "href": "#",
-        "menuIcon": "",
+        "menuIcon": faCertificate,
         "subMenus": [
             {
                 "title": "Police Clearance Certificate (PCC)",
-                "href": "/application/police-clearance-certificate"
+                "href": "/applications/police-clearance-certificate"
             },
             {
                 "title": "Identity Certificates",
-                "href": "/application/identity-certificate"
+                "href": "/applications/identity-certificate"
             },
             {
                 "title": "LoC Permit",
-                "href": "/application/loc-permit"
+                "href": "/applications/loc-permit"
             },
             {
                 "title": "Background Verification Certificate (GEP)",
-                "href": "/application/background-verification-cert-gep"
+                "href": "/applications/background-verification-cert-gep"
+            },
+            {
+                "title": "Surrender Certificate",
+                "href": "/applications/surrender-verificate"
             }
         ]
     }

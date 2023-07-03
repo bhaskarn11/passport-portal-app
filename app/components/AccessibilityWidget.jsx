@@ -22,7 +22,7 @@ function AccessibilityWidget() {
                     <FontAwesomeIcon icon={faMagnifyingGlassMinus} />
                 </Button>
             </ButtonGroup>
-            <LanguageSelector />
+            <LanguageSelector variant="outline-primary" />
         </Stack>
     )
 }

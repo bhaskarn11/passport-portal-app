@@ -20,11 +20,11 @@ const quickLinks = [
     },
     {
         title: "Locate Passport Seva Kendra",
-        url: ""
+        url: "#"
     },
     {
         title: "Locate Common Service Center",
-        url: ""
+        url: "#"
     }
 ]
 

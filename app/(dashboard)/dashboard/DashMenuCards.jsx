@@ -8,7 +8,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function DashMenuCards({ menu }) {
     return (
-        <Card className='shadow-sm'>
+        <Card className='shadow-sm text-primary' border='primary'>
             <Card.Body>
                 {
                     menu.subMenus.length === 0 ? (

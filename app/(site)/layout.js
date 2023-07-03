@@ -1,6 +1,6 @@
-import MainNavbar from '../components/MainNavbar'
 import { Container } from '@/bootstrap'
 import Footer from '../components/Footer'
+import MainNav from '../components/MainNav'
 
 
 export const metadata = {
@@ -17,7 +17,7 @@ export default function PublicLayout({ children }) {
   return (
     <body>
 
-      <MainNavbar />
+      <MainNav />
       <main>
         <Container fluid>
           {children}

@@ -1,15 +1,20 @@
 'use client'
 
-import HeaderBrand from '@/app/components/HeaderBrand';
-import React from 'react'
-import { Navbar, Nav, Offcanvas, Container, NavDropdown, Stack, Row } from "react-bootstrap";
+import { NavDropdown, Nav, Navbar, Form, Button, Offcanvas, Container, Stack} from "react-bootstrap";
+import HeaderBrand from "./HeaderBrand";
+import AccessibilityWidget from "./AccessibilityWidget";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Link from "next/link";
 
-import AccessibilityWidget from '@/app/components/AccessibilityWidget';
-import Avatar from 'react-avatar';
 
 
 const menus = [
+    {
+        title: "Home",
+        href: "/",
+        subMenus: []
+    },
     {
         title: "Dashboard",
         href: "/dashboard",
@@ -59,9 +64,9 @@ const menus = [
 ]
 
 
-function DashNavbar() {
+function MainNav() {
     return (
-        <Navbar sticky='top' expand="lg" bg='white'>
+        <Navbar sticky='top' expand="lg" bg="white" data-bs-theme="light" >
             <Stack direction='horizontal' className='px-3 d-md-none w-100'>
                 <HeaderBrand className="d-md-none" />
                 <div className='me-0 ms-auto'>
@@ -88,8 +93,8 @@ function DashNavbar() {
                                     </Nav.Item>
                                     <Nav.Item>
                                         <Stack gap={2} direction='horizontal'>
-                                            <Avatar name='Bhaskar Nar' round size={40} />
-                                            <h5>Bhaskar Nar</h5>
+                                            <Button size="sm" variant="outline-primary" href="/users/login">Login</Button>
+                                            <Button size="sm" variant="primary" href="/users/register">Register</Button>
                                         </Stack>
                                     </Nav.Item>
                                 </Nav>
@@ -115,7 +120,19 @@ function DashNavbar() {
 
                                 ))
                             }
-
+                            <Nav.Item>
+                                <Form className="d-flex ms-auto">
+                                    <Form.Control
+                                        type="search"
+                                        placeholder="Search"
+                                        className="me-2"
+                                        aria-label="Search"
+                                    />
+                                    <Button variant="outline-success">
+                                        <FontAwesomeIcon icon={faSearch} />
+                                    </Button>
+                                </Form>
+                            </Nav.Item>
                         </Nav>
                     </Container>
                 </Offcanvas.Body>
@@ -125,4 +142,4 @@ function DashNavbar() {
     )
 }
 
-export default DashNavbar
+export default MainNav

@@ -1,18 +1,44 @@
 import React from 'react'
 import { Alert, Button, Col, Container, Form, FormGroup, FormLabel, FormSelect, Row } from '@/bootstrap'
 
+
+
+
 const applicationTypes = [
   {
     name: "Passport",
-    value: "Passport"
+    value: "Passport",
+    options: [
+      {
+        label: "Fresh",
+        value: "fresh",
+        options: {}
+      },
+      {
+        label: "Reissue",
+        value: "reissue",
+        options: {}
+      }
+    ]
   },
   {
     name: "PCC",
-    value: "PCC"
+    value: "PCC",
+    option: []
   },
   {
     name: "Identity Certificate",
-    value: "IdentityCertificate"
+    value: "IdentityCertificate",
+    options: [
+      {
+        label: "Fresh",
+        value: "fresh"
+      },
+      {
+        label: "Reissue",
+        value: "reissue"
+      }
+    ]
   },
   {
     name: "Surrender Certificate",
@@ -24,35 +50,7 @@ const applicationTypes = [
   }
 ]
 
-const typesOfServices = [
-  {
-    name: "Fresh",
-    value: "FRESH"
-  },
-  {
-    name: "Renew",
-    value: "RENEW"
-  }
-]
 
-const candidateAgeGroup = [
-  {
-    name: "Less than 15",
-    value: 1
-  },
-  {
-    name: "18 or Above",
-    value: 2
-  },
-  {
-    name: "Between 15 and 18",
-    value: 3
-  }
-]
-
-const requiredSchemes = [
-  'Normal', 'Tatkal'
-]
 
 function FeesCalculatorPage() {
   return (
@@ -70,7 +68,7 @@ function FeesCalculatorPage() {
                 }
               </FormSelect>
             </FormGroup>
-            <FormGroup>
+            {/* <FormGroup>
               <FormLabel>Type of Service: </FormLabel>
               <FormSelect>
                 {
@@ -79,8 +77,8 @@ function FeesCalculatorPage() {
                   ))
                 }
               </FormSelect>
-            </FormGroup>
-            <FormGroup>
+            </FormGroup> */}
+            {/* <FormGroup>
               <FormLabel>Age of Applicant: </FormLabel>
               <FormSelect>
                 {
@@ -89,7 +87,7 @@ function FeesCalculatorPage() {
                   ))
                 }
               </FormSelect>
-            </FormGroup>
+            </FormGroup> */}
             <Button className='mt-2' variant='warning'><span className='font-weight-bold'>Get Fee Details</span></Button>
           </Form>
         </Col>

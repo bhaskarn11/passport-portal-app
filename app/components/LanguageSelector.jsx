@@ -5,11 +5,11 @@ import React from "react";
 
 const languages = [{name: "English", code: "EN"}, {name: "Hindi", code: 'HI'}]
 
-function LanguageSelector() {
+function LanguageSelector({variant}) {
     const [lang, setLang] = React.useState(languages[0])
     return (
         <Dropdown>
-            <Dropdown.Toggle size="sm" variant="light">
+            <Dropdown.Toggle size="sm" variant={variant?variant : "light"}>
                 <FontAwesomeIcon icon={faLanguage} />
                 <span className="ms-2">{lang.name}</span>
             </Dropdown.Toggle>
