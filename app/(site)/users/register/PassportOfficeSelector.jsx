@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { FormGroup, FormCheck, FormSelect } from '@/bootstrap'
+import { useFormContext } from 'react-hook-form'
 
 const passportOffices = [
     'Ahmedabad',
@@ -22,7 +23,8 @@ function PassportOfficeSelector() {
 
     const [passOfficeOption, setPassOfficeOption] = React.useState('CPV Delhi')
 
-    
+    const { register, formState: {errors} } = useFormContext()
+
     const handleOfficeOptionChange = (e) => {
         setPassOfficeOption(e.target.value)
         
@@ -33,27 +35,31 @@ function PassportOfficeSelector() {
         <FormGroup>
             <FormCheck
                 inline
+                isInvalid={errors.registerToApply}
                 id='inline-radio-1'
+                {...register("registerToApply")}
                 type='radio'
                 checked={passOfficeOption === 'CPV Delhi'}
-                name='registerToApply'
+                
                 onChange={handleOfficeOptionChange}
                 value="CPV Delhi"
                 label="CPV Delhi"
             />
             <FormCheck
                 inline
+                isInvalid={errors.registerToApply}
                 id='inline-radio-2'
+                {...register("registerToApply")}
                 checked={passOfficeOption === 'Passport Office'}
                 onChange={handleOfficeOptionChange}
                 type='radio'
                 value="Passport Office"
-                name='registerToApply'
+               
                 label="Passport Office"
             />
             {
                 passOfficeOption === 'Passport Office' ? (
-                    <FormSelect>
+                    <FormSelect isInvalid={errors.pspOfficeCity} {...register("pspOfficeCity")}>
                         {
                             passportOffices.map((office, idx) => (
                                 <option key={idx} value={office}>{office}</option>

@@ -19,12 +19,12 @@ const menus = [
         "menuIcon": faPassport,
         "subMenus": [
             {
-                "title": "New Passport",
-                "href": "/applications/new-passport"
+                "title": "New/Reissue Passport",
+                "href": "/applications/passport-application"
             },
             {
-                "title": "Renew Pasport",
-                "href": "/applications/renew-passport"
+                "title": "Diplomatic/Official Pasport",
+                "href": "/applications/diplomatic-official-passport"
             }
         ]
     },
