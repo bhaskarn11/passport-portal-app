@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Col, Container, Form, FormControl, FormGroup, FormLabel, Row, Stack } from "@/bootstrap";
+import StatusForm from './Form';
 
 export const metadata = {
   title: "Track Grievance Status"
@@ -38,21 +39,7 @@ function TrackGrievanceStatusPage() {
           <h4>Track Grievance/Feedback Status</h4>
         </Col>
       </Row>
-      <Form>
-        <Stack gap={4}>
-          {
-            formFields.map((field, idx) => (
-              <FormGroup key={idx}>
-                <FormLabel>{field.label}</FormLabel>
-                <FormControl
-                  name={field.name} type={field.type}
-                  id={field.label.replace(/\s/g, "-").toLowerCase().concat("-field")} />
-              </FormGroup>
-            ))
-          }
-          <Button>Get Status</Button>
-        </Stack>
-      </Form>
+      <StatusForm />
     </Container>
   )
 }

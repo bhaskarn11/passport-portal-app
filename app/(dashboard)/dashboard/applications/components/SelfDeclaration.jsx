@@ -1,8 +1,9 @@
 import React from 'react'
-import { Form, Stack } from 'react-bootstrap'
+import { Form, FormGroup, Stack } from 'react-bootstrap'
 import { useFormContext } from "react-hook-form";
 import MultistepFormNavigator from './MultistepFormNavigator';
 import { useStepper } from './StepperContext';
+import dayjs from 'dayjs';
 
 function SelfDeclaration() {
 
@@ -22,12 +23,39 @@ function SelfDeclaration() {
             <h6>{i + 1}. {t.title}</h6>
             {
               t.questions.map((q, j) => (
-                <Form.Check reverse key={j} {...register(`selfDeclarations.${i}${j}`)} label={q} id={`question-${i}${j + 1}`} />
+                <Form.Check reverse key={j} {...register(`selfDeclarations.questions.${i}${j}`)} label={q} id={`question-${i}${j + 1}`} />
               ))
             }
           </div>
         ))
       }
+      <Stack gap={3}>
+        <p className='bg-light'>
+          <strong>
+            The selected documents (not shared through DigiLocker®) need to be submitted at PSK/Passport Office for verification
+          </strong>
+        </p>
+        <FormGroup>
+          <Form.Label>Proof of birth: </Form.Label>
+          <Form.Select {...register("selfDeclarations.proofOfBirth")}>
+              {
+                birthProofDocs.map((d, i) => (
+                  <option value={d} key={i}>{d}</option>
+                ))
+              }
+          </Form.Select>
+        </FormGroup>
+        <FormGroup>
+          <Form.Label>Proof of Residential Address: </Form.Label>
+          <Form.Select {...register("selfDeclarations.proofOfResidence")}>
+              {
+                addressProofDocs.map((d, i) => (
+                  <option value={d} key={i}>{d}</option>
+                ))
+              }
+          </Form.Select>
+        </FormGroup>
+      </Stack>
       <strong>Please read the declaration carefully</strong>
       <p className='text-muted'>
         I owe allegiance to the sovereignty, unity & integrity of India, and have not voluntarily acquired citizenship or travel document of any other country. I have not lost, surrendered or been deprived of the citizenship of India. 
@@ -36,6 +64,16 @@ function SelfDeclaration() {
          and I am fully responsible for the accuracy of the same I am liable to be penalized or prosecuted if found otherwise I am aware that under the Passports Act, 1967 it is a criminal offence to furnish any false information or to suppress any material Information with a view to obtaining passport or travel document
         I have read and understood the contents of the above and by submitting this form certify that all the information submitted by me in the form is bonafide
       </p>
+      <Stack gap={4} direction='horizontal'>
+          <FormGroup>
+            <Form.Label>Place:</Form.Label>
+            <Form.Control {...register("selfDeclarations.place")} />
+          </FormGroup>
+          <FormGroup>
+            <Form.Label>Date:</Form.Label>
+            <Form.Control type='date' {...register("selfDeclarations.date")} />
+          </FormGroup>
+      </Stack>
       <Form.Check onChange={(e) => setAgree(e.target.checked)} checked={agree} name='agree' id='declaration-agree-check' label="I Agree" />
       <MultistepFormNavigator handleNextStep={handleNextStep}/>
     </Stack>
@@ -44,6 +82,18 @@ function SelfDeclaration() {
 
 export default SelfDeclaration
 
+
+const birthProofDocs = [
+  'Aadhar Card/E-Adhaar',
+  'Voter Id Card',
+  'Birth Certificate'
+]
+
+const addressProofDocs = [
+  'Aadhaar Card/E-Aadhaar',
+  'Voter Id Card',
+  'Driving Lisense'
+]
 
 const sdq = [
   {

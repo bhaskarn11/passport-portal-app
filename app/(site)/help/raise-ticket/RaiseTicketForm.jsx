@@ -9,8 +9,8 @@ import * as yup from 'yup'
 
 
 const scheme = yup.object({
-    isPassportAvailable: yup.string(),
-    refNo: yup.string(),
+    isPassportAvailable: yup.bool(),
+    refNo: yup.string().required(),
     name: yup.string().required(),
     email: yup.string().email().required(),
     mobileNumber: yup.string().required(),
@@ -37,30 +37,41 @@ function RaiseTicketForm() {
                     <FormGroup>
                         <Form.Check id='passport-available-checkbox'
                             type='checkbox' label='Passport Available' inline
+                            isInvalid={errors.isPassportAvailable}
                             {...register("isPassportAvailable")}
                         />
                     </FormGroup>
 
                     <FormGroup>
                         <Form.Label>Passport Number/File Number/ARN</Form.Label>
-                        <Form.Control {...register("refNo")} required name='refNo' type='text' />
+                        <Form.Control 
+                            isInvalid={errors.refNo}
+                            {...register("refNo")} />
                     </FormGroup>
                     <FormGroup>
                         <Form.Label>Applicant's Name</Form.Label>
-                        <Form.Control {...register("name")} name='name' type='text' />
+                        <Form.Control 
+                            isInvalid={errors.name}
+                            {...register("name")} />
                     </FormGroup>
                     <FormGroup>
                         <Form.Label>Mobile Number</Form.Label>
-                        <Form.Control {...register("mobileNumber")} name='mobileNumber' type='text' />
+                        <Form.Control 
+                            isInvalid={errors.mobileNumber}
+                            {...register("mobileNumber")} />
                     </FormGroup>
                     <FormGroup>
                         <Form.Label>Email Id</Form.Label>
-                        <Form.Control {...register("email")} name='email' type='email' />
+                        <Form.Control 
+                            isInvalid={errors.email}
+                            {...register("email")} type='email' />
                     </FormGroup>
                     <CategorySelector />
                     <FormGroup>
                         <Form.Label>Description</Form.Label>
-                        <Form.Control {...register("description")} name='description' as="textarea" />
+                        <Form.Control
+                            isInvalid={errors.description} 
+                            {...register("description")} as="textarea" />
                     </FormGroup>
                     <FormGroup>
                         <Form.Label>
