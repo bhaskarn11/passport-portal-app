@@ -9,11 +9,6 @@ import { useForm } from 'react-hook-form'
 
 
 
-export const metadata = {
-    title: "User Login"
-}
-
-
 function LoginPage() {
 
 

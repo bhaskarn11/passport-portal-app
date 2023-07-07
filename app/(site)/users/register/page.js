@@ -7,10 +7,6 @@ import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 
 
-export const metadata = {
-    title: "User Register"
-}
-
 
 const scheme = yup.object({
     pspOfficeCity: yup.string(),
