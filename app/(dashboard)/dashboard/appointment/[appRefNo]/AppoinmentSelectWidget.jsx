@@ -17,7 +17,7 @@ function CustomLabel({ app }) {
 
 function AppoinmentSelectWidget({ appointments }) {
 
-    const { register, handleSubmit, setValue, getFieldState } = useForm()
+    const { register, handleSubmit, setValue, formState: { isValid } } = useForm()
 
 
     const submitForm = (data) => {
@@ -27,10 +27,35 @@ function AppoinmentSelectWidget({ appointments }) {
     return (
         <Form onSubmit={handleSubmit(submitForm)}>
             <Stack gap={2} >
+                <ul className='legend align-middle'>
+                    <li>
+                        <span className='bg-danger'></span>Very few left
+                    </li>
+                    <li>
+                        <span className='bg-warning'></span>Filling fast
+                    </li>
+                    <li>
+                        <span className='bg-success'></span>Available
+                    </li>
+                </ul>
+                <style jsx>
+                    {`
+                        .legend {
+                            list-style: none;
+                        }
+                        .legend span {
+                            border: 1px solid #ccc; float: left; width: 15px; height: 15px; margin-right: 4px; margin-top: 4px
+                        }
+                        .legend li {
+                            float: left;
+                            margin-right: 10px;
+                        }
+                    `}
+                </style>
                 <Accordion style={{ overflowY: 'scroll', height: '60vh' }} alwaysOpen>
                     {
                         appointments.map((a, i) => (
-                            <Accordion.Item onClick={() => setValue("poCode", a.poCode)} eventKey={a.poCode} key={i}>
+                            <Accordion.Item eventKey={a.poCode} key={i}>
                                 <Accordion.Header>
                                     {a.poName}
                                 </Accordion.Header>
@@ -40,8 +65,9 @@ function AppoinmentSelectWidget({ appointments }) {
                                         a.dates.map((d, j) => (
                                             <Form.Check key={j} inline
                                                 value={d.date} type='radio'
+                                                onChangeCapture={() => setValue("poCode", a.poCode)}
                                                 className={d.available > (a.capacity * 3 / 4) ? "text-warning" : "text-success"}
-                                                label={<strong>{d.date}</strong>} id={`date-field-${i + 1}-${j + 1}`} {...register("date")}
+                                                label={<strong>{d.date}</strong>} id={`date-field-${i + 1}-${j + 1}`} {...register("date", { required: true })}
                                             />
                                         ))
                                     }
@@ -51,7 +77,7 @@ function AppoinmentSelectWidget({ appointments }) {
                     }
                 </Accordion>
                 <div className='sticky-bottom py-3 bg-white'>
-                    <Button className='w-100' type='submit' variant='warning'>Book Appointment</Button>
+                    <Button disabled={!isValid} className='w-100' type='submit' variant='warning'>Book Appointment</Button>
                 </div>
 
             </Stack>
