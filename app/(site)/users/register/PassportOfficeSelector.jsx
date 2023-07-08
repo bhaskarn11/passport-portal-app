@@ -32,7 +32,7 @@ function PassportOfficeSelector() {
 
 
     return (
-        <FormGroup>
+        <FormGroup className='mx-auto'>
             <FormCheck
                 inline
                 isInvalid={errors.registerToApply}
