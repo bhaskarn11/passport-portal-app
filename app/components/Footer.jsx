@@ -79,15 +79,15 @@ const footerMenus = [
         links: [
             {
                 title: "Privacy Policy",
-                url: ""
+                url: "/legal/privacy-policy"
             },
             {
                 title: "Terms & Conditions",
-                url: ""
+                url: "/legal/terms-conditions"
             },
             {
                 title: "Copyright Policy",
-                url: ""
+                url: "/legal/copyright-policy"
             }
         ]
     }
@@ -98,7 +98,7 @@ export default function Footer() {
     return (
         <footer className="bg-primary mt-4 py-4 text-white">
             <Container>
-                <Row className="pb-4 justify-left">
+                <Row className="pb-4 justify-left gy-4">
                     {
                         footerMenus.map((menu, index) => (
                             <Col className="col-12 col-md-3" key={index}>
@@ -106,13 +106,14 @@ export default function Footer() {
                                     <h4>{menu.title}</h4>
                                     {
                                         menu.links.map((link, idx) => (
-                                            <Link href={link.url} key={idx} className="link-underline-dark text-white link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-100-hover ">
+                                            <Link href={link.url} key={idx} className="link-underline text-white link-offset-2 link-offset-3-hover link-dark link-underline-opacity-0 link-underline-opacity-100-hover ">
                                                 {link.title}
                                             </Link>
                                         ))
                                     }
 
                                 </Stack>
+                                <hr className="d-md-none d-block"/>
                             </Col>
                         ))
                     }
@@ -132,7 +133,7 @@ export default function Footer() {
                     <Stack gap={2} direction="horizontal">
                         <FontAwesomeIcon icon={faPhone} />
                         <span>Call us: </span>
-                        <Link className="text-white" href="phone:1800-258-1800">
+                        <Link className="text-white" href="tel:1800-258-1800">
                             <strong>1800-258-1800</strong>
                         </Link>
                         <span>(toll free)</span>

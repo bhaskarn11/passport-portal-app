@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Form, FormGroup, Stack } from 'react-bootstrap'
+import { Alert, Form, FormGroup, Stack } from 'react-bootstrap'
 
 import { useFormContext } from "react-hook-form";
 import { useStepper } from './StepperContext';
@@ -53,6 +53,26 @@ function PassportTypeSelect() {
           isInvalid={errors.appType?.bookletType}
           type='radio' label="60 Pages" value="60" id='booklet-type-field-2' />
       </FormGroup>
+
+      <Alert variant='info'>
+        <strong>Note: </strong>
+        While applying under Fresh issuance category please make<br />
+        sure you never held a passport of the applied Category.
+        <hr />
+        <ul>
+          <li>
+            Please read the Passport Instruction Booklet carefully before filling the application form.<br />
+          </li>
+          <li>
+            Furnishing of incorrect information/suppression of information would lead to rejection of <br />
+            application and would attract penal provisions as prescribed under the Passports Act, 1967.<br />
+          </li>
+          <li>
+            Please produce your original documents at the time of submission of the form.
+          </li>
+        </ul>
+      </Alert>
+
       <MultistepFormNavigator handleNextStep={handleNextStep} />
     </Stack>
   )

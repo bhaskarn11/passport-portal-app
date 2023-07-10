@@ -30,6 +30,7 @@ const rpoDetails = [
 
 const app = [
     {
+        rpo: "Kolkata",
         poName: "PSK Kolkata",
         poCode: "KOL1",
         dates: [
@@ -61,6 +62,7 @@ const app = [
         capacity: 25
     },
     {
+        rpo: "Kolkata",
         poName: "POPSK Serampur",
         poCode: "KOL-PO1",
         dates: [
@@ -76,12 +78,29 @@ const app = [
         capacity: 30
     },
     {
+        rpo: "Kolkata",
         poName: "POPSK Chandannagar",
         poCode: "KOL-PO2",
         dates: [
             {
                 date: "11-02-2023",
                 available: 20
+            },
+            {
+                date: "09-02-2023",
+                available: 19
+            }
+        ],
+        capacity: 30
+    },
+    {
+        rpo: "Mumbai",
+        poName: "PSK Mumbai",
+        poCode: "MUM-PO2",
+        dates: [
+            {
+                date: "11-02-2023",
+                available: 6
             },
             {
                 date: "09-02-2023",
@@ -101,12 +120,12 @@ function BookAppointmentPage() {
 
     const submitForm = (data) => {
         console.log(data);
-        setAppointments(app)
+        setAppointments(app.filter((v, _) => v.rpo === data.rpoLocation))
     }
 
     return (
         <Container className='my-3'>
-            <Row >
+            <Row className='gy-4' >
                 <Col className='col-12 col-md-6'>
                     <Form onSubmit={handleSubmit(submitForm)}>
                         <Stack gap={2}>
@@ -115,7 +134,7 @@ function BookAppointmentPage() {
                                 <Form.Select {...register("rpoLocation")}>
                                     {
                                         rpoDetails.map((rpo, i) => (
-                                            <option key={i} value={rpo.id} >{ rpo.name }</option>
+                                            <option key={i} value={rpo.name} >{rpo.name}</option>
 
                                         ))
                                     }
@@ -127,7 +146,7 @@ function BookAppointmentPage() {
                 </Col>
                 <Col className='col-12 col-md-6'>
                     <h5>Available PSK/POPSK's</h5>
-                    { appointments.length != 0 ? <AppoinmentSelectWidget appointments={appointments} /> : (
+                    {appointments.length != 0 ? <AppoinmentSelectWidget appointments={appointments} /> : (
                         <h4 className='text-center'>
                             No appointments available/RPO Selected (please select an RPO from menu and search)
                         </h4>

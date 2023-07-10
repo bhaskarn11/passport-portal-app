@@ -120,7 +120,7 @@ function MainNav() {
 
                                 ))
                             }
-                            <Nav.Item>
+                            {/* <Nav.Item>
                                 <Form className="d-flex ms-auto">
                                     <Form.Control
                                         type="search"
@@ -132,7 +132,7 @@ function MainNav() {
                                         <FontAwesomeIcon icon={faSearch} />
                                     </Button>
                                 </Form>
-                            </Nav.Item>
+                            </Nav.Item> */}
                         </Nav>
                     </Container>
                 </Offcanvas.Body>

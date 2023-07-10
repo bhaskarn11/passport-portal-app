@@ -13,7 +13,7 @@ function LocatePoliceStation() {
 
     }
 
-    const { handleSubmit } = useForm()
+    const { handleSubmit, register } = useForm()
 
     const submitForm = (data) => {
         console.log(data);
@@ -21,13 +21,13 @@ function LocatePoliceStation() {
 
     return (
         <Container className='py-4'>
-            <Row>
+            <Row className='py-3'>
                 <Col className='col-md-6 col-12'>
                     <Form onSubmit={handleSubmit(submitForm)}>
                         <Stack gap={3}>
                             <h4>Find Police Your Station</h4>
                             <Stack gap={3}>
-                                <Form.Select onChange={handleStateChange}>
+                                <Form.Select {...register("state")} onChange={handleStateChange}>
                                     {
                                         states.map((s, idx) => (
                                             <option key={idx} defaultValue={state}
@@ -39,10 +39,10 @@ function LocatePoliceStation() {
                                     }
                                 </Form.Select>
 
-                                <Form.Select>
+                                <Form.Select {...register("district")}>
                                     {
                                         states.find((v) => v.code === state).policeDistricts.map((dis, idx) => (
-                                            <option value={idx} key={idx}>
+                                            <option value={dis} key={idx}>
                                                 {dis}
                                             </option>
                                         ))

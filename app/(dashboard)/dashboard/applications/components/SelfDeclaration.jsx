@@ -4,6 +4,8 @@ import { useFormContext } from "react-hook-form";
 import MultistepFormNavigator from './MultistepFormNavigator';
 import { useStepper } from './StepperContext';
 import dayjs from 'dayjs';
+import { selfDeclarations } from "@/data/self-declaration-questions";
+
 
 function SelfDeclaration() {
 
@@ -18,7 +20,7 @@ function SelfDeclaration() {
   return (
     <Stack gap={2} className='pt-4'>
       {
-        sdq.map((t, i) => (
+        selfDeclarations.map((t, i) => (
           <div key={i}>
             <h6>{i + 1}. {t.title}</h6>
             {

@@ -4,7 +4,9 @@ import Link from 'next/link'
 import React from 'react'
 import { Badge, Button, Card, Stack } from 'react-bootstrap'
 import { usePathname } from "next/navigation";
-function AppListCard({appSlug}) {
+
+
+function AppListCard({ app }) {
 
     const path = usePathname()
 
@@ -16,21 +18,21 @@ function AppListCard({appSlug}) {
                         Jan 24, 2023
                     </span>
                     <Badge pill bg='warning'>
-                        Submitted
+                        {app.status}
                     </Badge>
                 </Card.Title>
                 <Stack gap={3}>
-                    <Link href={`${path.toString()}/view?app=${appSlug}`} className='link-underline link-underline-opacity-0'>
-                        <h5>New Passport</h5>
+                    <Link href={`${path.toString()}/view?app=${app.type}&arn=${app.arn}`} className='link-underline link-underline-opacity-0'>
+                        <h5>{app.name}</h5>
                     </Link>
                     <p className='text-muted'>
-                        Please pay the application fee and book an appointment after that <br />
-                        your application will expire if fee not paid within 30 days
+                        Please pay the application fee and book an appointment. <br />
+                        Your application will expire if fee not paid within 30 days
                     </p>
                 </Stack>
                 <Stack direction='horizontal' gap={4}>
-                    <Button variant='success'>Pay application fee</Button>
-                    <Button variant='outline-success' disabled>Book appointment for this application</Button>
+                    <Button as={Link} href={`/dashboard/payment?arn=${app.arn}`} variant='success' disabled={app.appointmentDetails}>Pay application fee</Button>
+                    <Button as={Link} href={`/dashboard/appointment/${app.arn}`} variant='outline-success' disabled={!app.paymentDetails}>Book appointment for this application</Button>
                 </Stack>
             </Card.Body>
         </Card>

@@ -22,9 +22,6 @@ export const Articles = {
             type: 'array',
             of: [{ 
                 type: 'block',
-                of: [
-                    {type: 'image'}
-                ] 
             }]
         },
 

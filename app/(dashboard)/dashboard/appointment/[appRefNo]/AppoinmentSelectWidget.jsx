@@ -66,7 +66,7 @@ function AppoinmentSelectWidget({ appointments }) {
                                             <Form.Check key={j} inline
                                                 value={d.date} type='radio'
                                                 onChangeCapture={() => setValue("poCode", a.poCode)}
-                                                className={d.available > (a.capacity * 3 / 4) ? "text-warning" : "text-success"}
+                                                className={d.available < (a.capacity * 0.25) ? "text-danger" : d.available < (a.capacity * 0.5) ? "text-warning" : "text-success"}
                                                 label={<strong>{d.date}</strong>} id={`date-field-${i + 1}-${j + 1}`} {...register("date", { required: true })}
                                             />
                                         ))

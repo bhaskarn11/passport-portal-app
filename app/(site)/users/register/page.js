@@ -11,6 +11,7 @@ import logo from '@/assets/image/access_account.svg'
 
 const scheme = yup.object({
     pspOfficeCity: yup.string(),
+    // registerToApply: yup.string().default("CPV Delhi"),
     firstName: yup.string().required(),
     lastName: yup.string().required(),
     dob: yup.date().required(),
@@ -42,7 +43,7 @@ function RegisterPage() {
                             <Stack gap={3}>
                                 <h4>Register New User</h4>
 
-                                <PassportOfficeSelector />
+                                {/* <PassportOfficeSelector /> */}
                                 <Stack direction='horizontal' gap={3}>
                                     <FormGroup className='w-50'>
                                         <FormLabel>Given Name</FormLabel>
@@ -70,7 +71,7 @@ function RegisterPage() {
                                     <FormControl type='password' isInvalid={errors.confirmPassword} {...register('confirmPassowrd')} />
                                 </FormGroup>
                                 <Stack direction='horizontal' gap={3}>
-                                    <Button variant="primary" type="submit">
+                                    <Button className='w-25' variant="primary" type="submit">
                                         Submit
                                     </Button>
                                     <Button onClick={handleReset} variant='outline-warning'>

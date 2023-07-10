@@ -8,10 +8,10 @@ function PaymentPage({ searchParams }) {
         state 3: a payment signature verification will be done through handler function and shown status of the payment and update it to the server
     */
 
-    if (!searchParams['arn']) {
+    if (!searchParams['arn'] || searchParams['arn'].lenght === 0) {
         return (
             <Container className='py-4 text-center'>
-                <h3>Sorry! application not found. contact web admin</h3>
+                <h3>Sorry! application record not found. contact web admin</h3>
             </Container>
         )
     }

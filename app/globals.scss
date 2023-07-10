@@ -5,7 +5,8 @@ $theme-colors: (
     'dark': #FDCC86,
     'light' : #FDECEF,
     'danger': #D60E0A,
-    'success': green
+    'success': green,
+    'info': teal
 );
 
 @import '~bootstrap/scss/bootstrap';

@@ -39,7 +39,7 @@ function PassportOfficeSelector() {
                 id='inline-radio-1'
                 {...register("registerToApply")}
                 type='radio'
-                checked={passOfficeOption === 'CPV Delhi'}
+                // checked={passOfficeOption === 'CPV Delhi'}
                 
                 onChange={handleOfficeOptionChange}
                 value="CPV Delhi"
@@ -50,7 +50,7 @@ function PassportOfficeSelector() {
                 isInvalid={errors.registerToApply}
                 id='inline-radio-2'
                 {...register("registerToApply")}
-                checked={passOfficeOption === 'Passport Office'}
+                // checked={passOfficeOption === 'Passport Office'}
                 onChange={handleOfficeOptionChange}
                 type='radio'
                 value="Passport Office"
