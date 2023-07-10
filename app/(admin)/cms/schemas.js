@@ -36,8 +36,7 @@ export const Articles = {
                         accept: '.pdf, .doc, .docx'
                     }
                 }
-            ],
-            validation: rule => rule.length(4)
+            ]
         }
     ]
 }

@@ -20,15 +20,15 @@ const footerMenus = [
             },
             {
                 title: "Passport Seva",
-                url: "/about-us/passport-seva"
+                url: "/about-us/know-passport-seva"
             },
             {
                 title: "Passport Acts and Rules",
-                url: ""
+                url: "#"
             },
             {
                 title: "Citizen Charter",
-                url: ""
+                url: "/downloads/files/citizen-charter"
             }
         ]
     },
@@ -55,10 +55,6 @@ const footerMenus = [
             {
                 title: "Ministry of External Affairs",
                 url: "https://mea.gov.in"
-            },
-            {
-                title: "National Portal of India",
-                url: "https://india.go.in"
             },
             {
                 title: "National Portal of India",
@@ -102,7 +98,7 @@ export default function Footer() {
                     {
                         footerMenus.map((menu, index) => (
                             <Col className="col-12 col-md-3" key={index}>
-                                <Stack gap={1} className="bg-primary pb-3" variant="flush" title={menu.title}>
+                                <Stack gap={1} className="bg-primary pb-3" variant="flush">
                                     <h4>{menu.title}</h4>
                                     {
                                         menu.links.map((link, idx) => (
@@ -120,7 +116,7 @@ export default function Footer() {
 
 
                 </Row>
-                <Row>
+                <Row className="gy-3">
                     <Stack gap={2} direction="horizontal" className="align-middle">
                         <span>
                             Follow us on:

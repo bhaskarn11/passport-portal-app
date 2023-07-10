@@ -1,7 +1,7 @@
 'use client'
 
 import Head from 'next/head'
-import { Col, Container, Row, Carousel, Alert } from '@/bootstrap'
+import { Col, Container, Row, Carousel, Alert, Stack } from '@/bootstrap'
 import QuickLinkSidebar from '../components/QuickLinkSidebar'
 import LatestUpdates from '../components/LatestUpdates'
 import SiteStateWidget from '../components/SiteStatsWidget'
@@ -52,23 +52,25 @@ export default async function Home() {
             <SiteStateWidget />
           </Col>
           <Col className='pt-3 pt-md-0 col-12 col-md-8'>
-            {/* marquee effect will go here */}
-            {
-              ann.length > 0 ? (
-                <Marquee pauseOnHover={true} className='alert alert-warning'>
+            <Stack gap={3}>
 
-                  
+              {
+                ann.length > 0 ? (
+                  <Marquee pauseOnHover={true} className='alert alert-warning'>
+
+
                     {
                       ann.map((a, i) => (
-                        <div className='me-2' key={i}>{i+1}. {a.description} </div>
+                        <div className='me-2' key={i}>{i + 1}. {a.description} </div>
                       ))
                     }
-                  
-                </Marquee>
-              ) : ""
-            }
-            <MainBannerSlide />
-            <LatestUpdates />
+
+                  </Marquee>
+                ) : ""
+              }
+              <MainBannerSlide />
+              <LatestUpdates />
+            </Stack>
           </Col>
         </Row>
       </Container>

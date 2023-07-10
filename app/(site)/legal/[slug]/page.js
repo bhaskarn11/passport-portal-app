@@ -1,5 +1,5 @@
 import { Container } from "@/bootstrap";
-import { getLegalDocs } from '@/lib/utils'
+import { getArticle } from '@/lib/utils'
 import { PortableText } from '@portabletext/react'
 
 
@@ -8,7 +8,7 @@ import { PortableText } from '@portabletext/react'
 async function LegalPages({ params }) {
 
 
-    const doc = await getLegalDocs(params.slug)
+    const doc = await getArticle(params.slug)
 
     return (
         <Container>

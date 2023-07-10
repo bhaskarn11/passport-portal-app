@@ -2,29 +2,16 @@ import Link from 'next/link'
 import { Card, Col, Row, Stack } from '@/bootstrap'
 import { getTop4Notices } from "@/lib/utils";
 import dayjs from 'dayjs'
-// const updates = [
-//     {
-//         date: "12/06/2023",
-//         title: "Message from EAM about Passport Seva"
-//     },
-//     {
-//         date: "12/06/2023",
-//         title: "Press release regarding PCC"
-//     },
-//     {
-//         date: "12/06/2023",
-//         title: "Applicants can book the appointments to the nearest Operational PSK/POPSK as per the attached schedule (Operational PSK and POPSK List.)"
 
-//     }
-// ]
+
 
 function LatestUpdateCard({ update }) {
     return (
-        <Card bg="secondary">
+        <Card border="secondary">
             <Card.Body>
                 <Card.Header style={{backgroundColor: "inherit"}}>{dayjs(update._createdAt).format('DD/MM/YYYY')}</Card.Header>
                 <Card.Title>
-                    <Link className='link-underline-opacity-0 link-underline' href={`/latest-updates#${update._id}`}>{update.description.length > 50 ? (update.description.slice(0, 50) + "...") : update.description}</Link>
+                    <Link className='link-underline-opacity-0 link-underline-opacity-75-hover link-underline h5' href={`/latest-updates#${update._id}`}>{update.description.length > 50 ? (update.description.slice(0, 50) + "...") : update.description}</Link>
                 </Card.Title>
             </Card.Body>
         </Card>
