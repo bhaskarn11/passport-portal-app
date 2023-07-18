@@ -2,12 +2,13 @@
 
 import HeaderBrand from '@/app/components/HeaderBrand';
 import React from 'react'
-import { Navbar, Nav, Offcanvas, Container, NavDropdown, Stack, Row } from "react-bootstrap";
+import { Navbar, Nav, Offcanvas, Container, NavDropdown, Stack, Row, Button } from "react-bootstrap";
 import Link from "next/link";
 
 import AccessibilityWidget from '@/app/components/AccessibilityWidget';
 import Avatar from 'react-avatar';
-
+import { useSession } from 'next-auth/react';
+import { signOut } from "next-auth/react";
 
 const menus = [
     {
@@ -60,6 +61,13 @@ const menus = [
 
 
 function DashNavbar() {
+
+    const { data: session } = useSession()
+
+    const handleLogout = async () => {
+        await signOut()
+    }
+
     return (
         <Navbar sticky='top' expand="lg" bg='white'>
             <Stack direction='horizontal' className='px-3 d-md-none w-100'>
@@ -87,10 +95,15 @@ function DashNavbar() {
                                         <AccessibilityWidget />
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Stack gap={2} direction='horizontal'>
-                                            <Avatar name='Bhaskar Nar' round size={40} />
-                                            <h5>Bhaskar Nar</h5>
-                                        </Stack>
+                                        {
+                                            session && (
+                                                <Stack gap={2} direction='horizontal'>
+                                                    <Avatar name={session.user.first_name} round size={40} />
+                                                    <h5>{session.user.first_name} {session.user.last_name}</h5>
+                                                    <Button size='sm' variant='outline-warning' onClick={handleLogout}>Log out</Button>
+                                                </Stack>
+                                            )
+                                        }
                                     </Nav.Item>
                                 </Nav>
                             </Nav.Item>

@@ -1,5 +1,5 @@
 import DashNavbar from './dashboard/DashNavbar'
-
+import AuthProvider from '@/lib/context/AuthProvider'
 
 export const metadata = {
     title: {
@@ -14,12 +14,14 @@ export const metadata = {
 export default function PublicLayout({ children }) {
     return (
         <body>
-            {/* Header and Navbar will go here */}
-            <DashNavbar />
-            <main>
-                {children}
-            </main>
-            {/* Footer will go here */}
+            <AuthProvider>
+                {/* Header and Navbar will go here */}
+                <DashNavbar />
+                <main>
+                    {children}
+                </main>
+                {/* Footer will go here */}
+            </AuthProvider>
         </body>
     )
 }

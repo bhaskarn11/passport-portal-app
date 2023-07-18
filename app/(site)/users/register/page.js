@@ -1,13 +1,15 @@
 'use client'
 import React from 'react'
 import { Button, Col, Container, Form, FormControl, FormGroup, FormLabel, Row, Stack } from '@/bootstrap'
-import PassportOfficeSelector from './PassportOfficeSelector';
+// import PassportOfficeSelector from './PassportOfficeSelector';
 import { useForm, FormProvider } from 'react-hook-form';
 import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from 'next/image';
 import logo from '@/assets/image/access_account.svg'
-
+import UserService from '@/lib/api/user'
+import dayjs from 'dayjs'
+import { redirect } from 'next/navigation';
 
 const scheme = yup.object({
     pspOfficeCity: yup.string(),
@@ -24,9 +26,26 @@ const scheme = yup.object({
 function RegisterPage() {
 
     const methods = useForm({ resolver: yupResolver(scheme) })
-    const { register, formState: { errors } } = methods
-    const submitForm = (data) => {
-        console.log(data);
+    const { register, formState: { errors }, reset } = methods
+
+    const api = new UserService()
+
+    const submitForm = async (data) => {
+        // console.log(data);
+        let obj = {
+            first_name: data.firstName,
+            last_name: data.lastName,
+            dob: dayjs(data.dob).format('YYYY-MM-DD'),
+            email: data.email,
+            password: data.password,
+            scopes: ['read', 'write'],
+            is_email_verified: false
+        }
+        
+        await api.createUser(obj)
+        reset()
+        redirect("/users/login")
+
     }
 
 

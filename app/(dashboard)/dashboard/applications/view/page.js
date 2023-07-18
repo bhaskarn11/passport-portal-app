@@ -5,7 +5,7 @@ import { Container, Row } from "@/bootstrap";
 async function ApplicationViewPage({ searchParams }) {
 
 
-    const renderApplicationVew = (appSlug) => {
+    const renderApplicationView = (appSlug) => {
         switch (appSlug) {
             case "passport":
                 return (
@@ -23,7 +23,7 @@ async function ApplicationViewPage({ searchParams }) {
         <Container>
             <Row>
                 {
-                    searchParams.app? renderApplicationVew("new-passport") : ""
+                    searchParams.app? renderApplicationView("passport") : ""
                 }
             </Row>
         </Container>

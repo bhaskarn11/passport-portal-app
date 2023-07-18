@@ -17,6 +17,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { applicationFormSchema } from "../components/form.schema";
 import { StepperContext } from '../components/StepperContext';
 
+import ApplicationService from '@/lib/api/application'
+import { useSession } from 'next-auth/react';
+import dayjs from 'dayjs'
 
 const RenderComponent = (page) => {
 
@@ -63,6 +66,8 @@ function PassportForm() {
         'Previous Passport Details', 'Self Declaration', 'Preview & Submit'
     ]
 
+    const { data: session } = useSession()
+
 
 
     const methods = useForm({ resolver: yupResolver(applicationFormSchema) })
@@ -87,7 +92,48 @@ function PassportForm() {
 
 
 
-    const submitForm = (data) => console.log(data);
+    const submitForm = async (data) => {
+        const api = new ApplicationService(session.token.accessToken)
+
+        const res = await api.createApplication({
+            "app_name": "Passport Appication",
+            "status": "SUBMITTED",
+            "application_type": data.appType.applicationType,
+            "scheme_type": data.appType.schemeType,
+            "booklet_type": data.appType.bookletType,
+            "first_name": data.personalDetails.firstName,
+            "last_name": data.personalDetails.lastName,
+            "gender": data.personalDetails.gender,
+            "marital_status": data.personalDetails.maritalStatus,
+            "email": data.personalDetails.email,
+            "mobile_number": data.personalDetails.mobileNumber,
+            "dob": dayjs(data.personalDetails.dob).format('YYYY-MM-DD'),
+            "submitted_at": "2023-07-17",
+            "address_details": {
+                "house_street": data.addressDetails.houseStreet,
+                "city_name": data.addressDetails.cityName,
+                "pin_code": data.addressDetails.pinCode,
+                "state": data.addressDetails.state,
+                "district": data.addressDetails.district,
+                "police_station": data.addressDetails.policeStation
+            },
+            "prev_psp_details": {
+                "is_identity_cert_held": data.prevPspDetails.isIdentityCertHeld,
+                "is_diplomatic_psp_held": data.prevPspDetails.isDiplomaticPassHeld,
+                "applied_psp_before": data.prevPspDetails.appliedPassBefore
+            },
+            "family_details": {
+                "father_name": data.familyDetails.fatherName,
+                "mother_name": data.familyDetails.motherName,
+                "legal_guardian_name": data.familyDetails.legalGuardianName,
+                "spouse_name": data.familyDetails.spouseName
+            },
+            "fee": 1500.00,
+            "payment_details": null
+        })
+
+        console.log(res);
+    }
 
     return (
         <FormProvider {...methods}>

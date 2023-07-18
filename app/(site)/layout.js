@@ -1,7 +1,7 @@
 import { Container } from '@/bootstrap'
 import Footer from '../components/Footer'
 import MainNav from '../components/MainNav'
-
+import AuthProvider from '@/lib/context/AuthProvider'
 
 export const metadata = {
   title: {
@@ -16,15 +16,17 @@ export const metadata = {
 export default function PublicLayout({ children }) {
   return (
     <body>
+      <AuthProvider>
+        <MainNav />
+        <main>
+          <Container fluid>
+            {children}
+          </Container>
+        </main>
 
-      <MainNav />
-      <main>
-        <Container fluid>
-          {children}
-        </Container>
-      </main>
+        <Footer />
+      </AuthProvider>
 
-      <Footer />
     </body>
   )
 }
