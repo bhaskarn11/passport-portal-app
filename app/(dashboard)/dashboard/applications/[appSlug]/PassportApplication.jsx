@@ -96,7 +96,7 @@ function PassportForm() {
         const api = new ApplicationService(session.token.accessToken)
 
         const res = await api.createApplication({
-            "app_name": "Passport Appication",
+            "app_name": "New Passport",
             "status": "SUBMITTED",
             "application_type": data.appType.applicationType,
             "scheme_type": data.appType.schemeType,
@@ -129,7 +129,6 @@ function PassportForm() {
                 "spouse_name": data.familyDetails.spouseName
             },
             "fee": 1500.00,
-            "payment_details": null
         })
 
         console.log(res);

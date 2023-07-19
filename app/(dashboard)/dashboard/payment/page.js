@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Col, Container, Row, Stack, Button, Alert } from "@/bootstrap";
+import ApplicationService from "@/lib/api/application";
+import { getServerSession } from 'next-auth'
+import NoDataBanner from '../NoDataBanner'
+import { options } from '@/lib/auth.options'
+import Loading from '../loading';
 
-function PaymentPage({ searchParams }) {
+
+async function PaymentPage({ searchParams }) {
     /*
         stage 1: order will be created on the payment gateway side through backend and order id will be returned
         stage 2: application data will be fetched from server and payment will be initiated against the order id at stage 1
@@ -10,59 +16,72 @@ function PaymentPage({ searchParams }) {
 
     if (!searchParams['arn'] || searchParams['arn'].lenght === 0) {
         return (
-            <Container className='py-4 text-center'>
-                <h3>Sorry! application record not found. contact web admin</h3>
-            </Container>
+            <NoDataBanner />
         )
     }
 
+    let application = null
+    const session = await getServerSession(options)
+    if (session && session.token) {
+
+        const api = new ApplicationService(session.token.accessToken)
+        application = await api.getApplication(searchParams['arn'])
+    }
+
+
+
+    
+
+
     return (
         <Container className='py-4'>
-            <Row>
-                <Alert variant='warning'>
-                    Payments once made for availing passport services will not be refunded. If the payment is 
-                    is successfully done please do not pay again
-                </Alert>
-                <Col className='col-12 col-md-6'>
-                    <ul className='gap-2'>
-                        <li>
-                            <span>Application Reference Number(ARN): </span>
-                            <h6 className='text-success'>{"23-9878455"}</h6>
-                        </li>
-
-                        <li>
-                            <span>Given Name</span>
-                            <h6 className='text-success'>{"Bhaskar Ghosh"}</h6>
-                        </li>
-                        <li>
-                            <span>Service Type</span>
-                            <h6 className='text-success'>{"NORMAL"}</h6>
-                        </li>
-                        <li>
-                            <span>Type of Appliction</span>
-                            <h6 className='text-success'>{"NEW PASSPORT"}</h6>
-                        </li>
-                    </ul>
-                </Col>
-                <Col className='col-12 col-md-6'>
-                    <Stack gap={2}>
+            <Suspense fallback={<Loading />}>
+                <Row>
+                    <Alert variant='warning'>
+                        Payments once made for availing passport services will not be refunded. If the payment is
+                        is successfully done please do not pay again
+                    </Alert>
+                    <Col className='col-12 col-md-6'>
                         <ul className='gap-2'>
                             <li>
-                                <span>Total Fee: </span>
-                                <h6 className='text-success'>{"Rs. 1500.00"}</h6>
+                                <span>Application Reference Number(ARN): </span>
+                                <h6 className='text-success'>{application.arn}</h6>
                             </li>
 
                             <li>
-                                <strong>Amount to be paid: </strong>
-                                <h6 className='text-danger'>{"Rs. 1500.00"}</h6>
+                                <span>Given Name</span>
+                                <h6 className='text-success'>{application.first_name} {application.last_name}</h6>
+                            </li>
+                            <li>
+                                <span>Application Type</span>
+                                <h6 className='text-success'>{application.application_type}</h6>
+                            </li>
+                            <li>
+                                <span>Type of Appliction</span>
+                                <h6 className='text-success'>{application.scheme_type}</h6>
                             </li>
                         </ul>
-                        <Button className='w-50' variant='warning'>
-                            <strong>Pay Fee</strong>
-                        </Button>
-                    </Stack>
-                </Col>
-            </Row>
+                    </Col>
+                    <Col className='col-12 col-md-6'>
+                        <Stack gap={2}>
+                            <ul className='gap-2'>
+                                <li>
+                                    <span>Total Fee: </span>
+                                    <h6 className='text-success'>{application.fee}</h6>
+                                </li>
+
+                                <li>
+                                    <strong>Amount to be paid: </strong>
+                                    <h6 className='text-danger'>{application.fee}</h6>
+                                </li>
+                            </ul>
+                            <Button className='w-50' variant='warning'>
+                                <strong>Pay Fee</strong>
+                            </Button>
+                        </Stack>
+                    </Col>
+                </Row>
+            </Suspense>
         </Container>
     )
 }

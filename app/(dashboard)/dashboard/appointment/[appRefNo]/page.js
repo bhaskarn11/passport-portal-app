@@ -1,11 +1,10 @@
-'use client'
+import React, { Suspense } from 'react'
+import { Container } from "@/bootstrap";
+import PublicService from '@/lib/api/public'
+import ApplicationService from '@/lib/api/application'
+import Loading from '../../loading';
+import Page from './PageComponent'
 
-import { useParams } from 'next/navigation';
-import React from 'react'
-
-import { Col, Container, Row, Form, FormGroup, Button, Stack } from "react-bootstrap";
-import { useForm } from 'react-hook-form';
-import AppoinmentSelectWidget from './AppoinmentSelectWidget';
 
 /*
     in this page we will fetch the application details 
@@ -111,48 +110,20 @@ const app = [
     }
 ]
 
-function BookAppointmentPage() {
+async function BookAppointmentPage({params}) {
 
-    const params = useParams()
-    const { register, handleSubmit } = useForm()
-    const [appointments, setAppointments] = React.useState([])
+    const api = new PublicService()
+    const res = await api.getRpos()
+    const appService = new ApplicationService()
+    const app = await appService.getApplication(params['appRefNo'])
 
 
-    const submitForm = (data) => {
-        console.log(data);
-        setAppointments(app.filter((v, _) => v.rpo === data.rpoLocation))
-    }
 
     return (
         <Container className='my-3'>
-            <Row className='gy-4' >
-                <Col className='col-12 col-md-6'>
-                    <Form onSubmit={handleSubmit(submitForm)}>
-                        <Stack gap={2}>
-                            <FormGroup>
-                                <Form.Label>Select RPO</Form.Label>
-                                <Form.Select {...register("rpoLocation")}>
-                                    {
-                                        rpoDetails.map((rpo, i) => (
-                                            <option key={i} value={rpo.name} >{rpo.name}</option>
-
-                                        ))
-                                    }
-                                </Form.Select>
-                            </FormGroup>
-                            <Button type='submit'>Search Appoinment</Button>
-                        </Stack>
-                    </Form>
-                </Col>
-                <Col className='col-12 col-md-6'>
-                    <h5>Available PSK/POPSK's</h5>
-                    {appointments.length != 0 ? <AppoinmentSelectWidget appointments={appointments} /> : (
-                        <h4 className='text-center'>
-                            No appointments available/RPO Selected (please select an RPO from menu and search)
-                        </h4>
-                    )}
-                </Col>
-            </Row>
+            <Suspense fallback={<Loading />}>
+                <Page rpos={res} app={app} />
+            </Suspense>
         </Container>
     )
 }

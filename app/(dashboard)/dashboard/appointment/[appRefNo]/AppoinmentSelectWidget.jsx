@@ -55,18 +55,18 @@ function AppoinmentSelectWidget({ appointments }) {
                 <Accordion style={{ overflowY: 'scroll', height: '60vh' }} alwaysOpen>
                     {
                         appointments.map((a, i) => (
-                            <Accordion.Item eventKey={a.poCode} key={i}>
+                            <Accordion.Item eventKey={a.po_code} key={i}>
                                 <Accordion.Header>
-                                    {a.poName}
+                                    {a.po_code}
                                 </Accordion.Header>
                                 <AccordionBody>
                                     <h6>Available Dates</h6>
                                     {
-                                        a.dates.map((d, j) => (
+                                        a.appointment_schedules.map((d, j) => (
                                             <Form.Check key={j} inline
                                                 value={d.date} type='radio'
-                                                onChangeCapture={() => setValue("poCode", a.poCode)}
-                                                className={d.available < (a.capacity * 0.25) ? "text-danger" : d.available < (a.capacity * 0.5) ? "text-warning" : "text-success"}
+                                                onChangeCapture={() => setValue("poCode", d.po_code)}
+                                                className={d.available_slots < (a.appointment_capacity * 0.25) ? "text-danger" : d.available_slots < (a.appointment_capacity * 0.5) ? "text-warning" : "text-success"}
                                                 label={<strong>{d.date}</strong>} id={`date-field-${i + 1}-${j + 1}`} {...register("date", { required: true })}
                                             />
                                         ))
