@@ -31,7 +31,7 @@ function AppListCard({ app }) {
                     </p>
                 </Stack>
                 <Stack direction='horizontal' gap={4}>
-                    <Button as={Link} href={`/dashboard/payment?arn=${app.arn}`} variant='success' disabled={app.appointments}>Pay application fee</Button>
+                    <Button as={Link} href={`/dashboard/payment?arn=${app.arn}`} variant='success' disabled={app.payment_details}>Pay application fee</Button>
                     <Button as={Link} href={`/dashboard/appointment/${app.arn}`} variant='outline-success' disabled={!app.payment_details}>Book appointment for this application</Button>
                 </Stack>
             </Card.Body>

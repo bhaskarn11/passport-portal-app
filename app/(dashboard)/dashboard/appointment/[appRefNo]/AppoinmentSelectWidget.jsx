@@ -6,14 +6,6 @@ import AccordionBody from 'react-bootstrap/esm/AccordionBody'
 import { useForm } from 'react-hook-form'
 
 
-function CustomLabel({ app }) {
-    return (
-        <ListGroup.Item>
-            <h4>{app.poName}</h4>
-        </ListGroup.Item>
-    )
-}
-
 
 function AppoinmentSelectWidget({ appointments }) {
 
@@ -22,6 +14,24 @@ function AppoinmentSelectWidget({ appointments }) {
 
     const submitForm = (data) => {
         console.log(data);
+    }
+
+    function groupBy(collection, property) {
+        const obj = collection.reduce((groups, item) => {
+            const group = (groups[item[property]] || []);
+            group.push(item);
+            groups[item[property]] = group;
+            return groups;
+        }, {});
+        
+        return obj
+
+    }
+
+    const handleDateChange = (d) => {
+        setValue("poCode", d.po_code)
+        setValue("application_type", d.application_type)
+        setValue("scheme_type", d.scheme_type)
     }
 
     return (
@@ -55,24 +65,35 @@ function AppoinmentSelectWidget({ appointments }) {
                 <Accordion style={{ overflowY: 'scroll', height: '60vh' }} alwaysOpen>
                     {
                         appointments.map((a, i) => (
-                            <Accordion.Item eventKey={a.po_code} key={i}>
-                                <Accordion.Header>
-                                    {a.po_code}
-                                </Accordion.Header>
-                                <AccordionBody>
-                                    <h6>Available Dates</h6>
-                                    {
-                                        a.appointment_schedules.map((d, j) => (
-                                            <Form.Check key={j} inline
-                                                value={d.date} type='radio'
-                                                onChangeCapture={() => setValue("poCode", d.po_code)}
-                                                className={d.available_slots < (a.appointment_capacity * 0.25) ? "text-danger" : d.available_slots < (a.appointment_capacity * 0.5) ? "text-warning" : "text-success"}
-                                                label={<strong>{d.date}</strong>} id={`date-field-${i + 1}-${j + 1}`} {...register("date", { required: true })}
-                                            />
-                                        ))
-                                    }
-                                </AccordionBody>
-                            </Accordion.Item>
+                            a.appointment_schedules.length > 0 && (
+                                <Accordion.Item eventKey={a.po_code} key={i}>
+                                    <Accordion.Header>
+                                        {a.po_code}
+                                    </Accordion.Header>
+                                    <AccordionBody>
+                                        <h6>Available Dates</h6>
+                                        {
+
+                                            Object.entries(groupBy(a.appointment_schedules, "application_type")).map(([key, val], j) => (
+                                                <Form.Group key={j}>
+                                                    <Form.Label className='me-2'>{key}:</Form.Label>
+                                                    
+                                                    {
+                                                        val.map((d, k) => (
+                                                            <Form.Check key={k} inline
+                                                                value={d.date} type='radio'
+                                                                onChangeCapture={() => handleDateChange(d)}
+                                                                className={d.available_slots < (a.appointment_capacity * 0.25) ? "text-danger" : d.available_slots < (a.appointment_capacity * 0.5) ? "text-warning" : "text-success"}
+                                                                label={<strong>{d.date}</strong>} id={`date-field-${i + 1}-${j + 1}-${k + 2}`} {...register("date", { required: true })}
+                                                            />
+                                                        ))
+                                                    }
+                                                </Form.Group>
+                                            ))
+                                        }
+                                    </AccordionBody>
+                                </Accordion.Item>
+                            )
                         ))
                     }
                 </Accordion>

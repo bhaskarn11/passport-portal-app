@@ -1,13 +1,15 @@
 'use client'
 
 import React from 'react'
-import { Spinner } from 'react-bootstrap'
+import { Container, Spinner } from 'react-bootstrap'
 
 function Loading() {
   return (
-    <Spinner>
+    <Container className='text-center'>
+      <Spinner>
         <span className='visually-hidden' >Loading...</span>
-    </Spinner>
+      </Spinner>
+    </Container>
   )
 }
 

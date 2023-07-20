@@ -16,7 +16,7 @@ function Page({ rpos, app }) {
 
 
     const submitForm = async (data) => {
-        const res = await api.getAppointementSlots(data.rpoLocation, app.application_type)
+        const res = await api.getAppointementSlots(data.rpoLocation)
 
         setAppointments(res)
         

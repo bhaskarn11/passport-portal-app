@@ -98,8 +98,10 @@ function DashNavbar() {
                                         {
                                             session && (
                                                 <Stack gap={2} direction='horizontal'>
-                                                    <Avatar name={session.user.first_name} round size={40} />
-                                                    <h5>{session.user.first_name} {session.user.last_name}</h5>
+                                                    <Stack gap={2} direction='horizontal' className='link-underline link-underline-opacity-0' as={Link} href={"/profile"}>
+                                                        <Avatar name={session.user.first_name} round size={40} />
+                                                        <h5>{session.user.first_name} {session.user.last_name}</h5>
+                                                    </Stack>
                                                     <Button size='sm' variant='outline-warning' onClick={handleLogout}>Log out</Button>
                                                 </Stack>
                                             )
