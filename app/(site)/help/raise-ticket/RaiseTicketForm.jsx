@@ -44,33 +44,35 @@ function RaiseTicketForm() {
 
                     <FormGroup>
                         <Form.Label>Passport Number/File Number/ARN</Form.Label>
-                        <Form.Control 
+                        <Form.Control
                             isInvalid={errors.refNo}
                             {...register("refNo")} />
                     </FormGroup>
                     <FormGroup>
                         <Form.Label>Applicant's Name</Form.Label>
-                        <Form.Control 
+                        <Form.Control
                             isInvalid={errors.name}
                             {...register("name")} />
                     </FormGroup>
-                    <FormGroup>
-                        <Form.Label>Mobile Number</Form.Label>
-                        <Form.Control 
-                            isInvalid={errors.mobileNumber}
-                            {...register("mobileNumber")} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Form.Label>Email Id</Form.Label>
-                        <Form.Control 
-                            isInvalid={errors.email}
-                            {...register("email")} type='email' />
-                    </FormGroup>
+                    <Stack direction='horizontal' gap={2}>
+                        <FormGroup>
+                            <Form.Label>Mobile Number</Form.Label>
+                            <Form.Control
+                                isInvalid={errors.mobileNumber}
+                                {...register("mobileNumber")} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Form.Label>Email Id</Form.Label>
+                            <Form.Control
+                                isInvalid={errors.email}
+                                {...register("email")} type='email' />
+                        </FormGroup>
+                    </Stack>
                     <CategorySelector />
                     <FormGroup>
                         <Form.Label>Description</Form.Label>
                         <Form.Control
-                            isInvalid={errors.description} 
+                            isInvalid={errors.description}
                             {...register("description")} as="textarea" />
                     </FormGroup>
                     <FormGroup>
@@ -81,7 +83,7 @@ function RaiseTicketForm() {
                     </FormGroup>
                     <Stack direction='horizontal' gap={3}>
                         <Button type='submit' >Create Ticket</Button>
-                        <Button onClick={() => reset() } variant='outline-primary'>Reset</Button>
+                        <Button onClick={() => reset()} variant='outline-primary'>Reset</Button>
                     </Stack>
                 </Stack>
             </Form>

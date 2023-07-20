@@ -109,7 +109,7 @@ export default function Footer() {
                                     }
 
                                 </Stack>
-                                <hr className="d-md-none d-block"/>
+                                <hr className="d-md-none d-block" />
                             </Col>
                         ))
                     }
@@ -121,10 +121,18 @@ export default function Footer() {
                         <span>
                             Follow us on:
                         </span>
-                        <FontAwesomeIcon size="lg" icon={faFacebook} />
-                        <FontAwesomeIcon size="lg" icon={faTwitter} />
-                        <FontAwesomeIcon size="lg" icon={faYoutube} />
-                        <FontAwesomeIcon size="lg" icon={faFlickr} />
+                        <Link href={"https://facebook.com"}>
+                            <FontAwesomeIcon size="lg" icon={faFacebook} />
+                        </Link>
+                        <Link href={"#"}>
+                            <FontAwesomeIcon size="lg" icon={faTwitter} />
+                        </Link>
+                        <Link href={"#"}>
+                            <FontAwesomeIcon size="lg" icon={faYoutube} />
+                        </Link>
+                        <Link href={"#"}>
+                            <FontAwesomeIcon size="lg" icon={faFlickr} />
+                        </Link>
                     </Stack>
                     <Stack gap={2} direction="horizontal">
                         <FontAwesomeIcon icon={faPhone} />
@@ -158,7 +166,7 @@ export default function Footer() {
 
                     </Col>
                 </Row>
-                <hr/>
+                <hr />
                 <Row className="pt-4">
                     <small>© Ministry of External Affairs, Government of India. All rights reserved.</small>
                     <small>Last updated: 12/06/2023</small>
