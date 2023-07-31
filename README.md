@@ -2,10 +2,10 @@
 
 This project was created as a demonstration
 of a redesign of the 
-Passport Seva Government Website available at [Passport Seva]('https://passportindia.gov.in')
+Passport Seva Government Website available at [Passport Seva](https://passportindia.gov.in)
 using modern web technologies.
 
-**A demo backend was also built which can be found at [Here]('https://github.com/bhaskarn11/passport-seva-backend')**
+**A demo backend was also built which can be found at [Here](https://github.com/bhaskarn11/passport-seva-backend)**
 
 under no circumstances it claims to be authentic representation of the content available at the **original** site.
 
